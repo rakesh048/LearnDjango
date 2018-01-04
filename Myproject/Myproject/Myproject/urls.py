@@ -13,11 +13,30 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
+
+
+#=============================Important============================================================
+
+#####  defination of url function
+
+##    def url(regex, view, kwargs=None, name=None):
+
+   # regex : A regular expression for matching URL patterns in strings
+   # view : A view function used to process the user request for a matched URL
+   # name : A unique identifier for a given URL. This is a very important feature.  
+            #Always remember to name your URLs. With this, you can change a specific URL in the whole project 
+            #by just changing the regex. So it’s important to never hard code URLs in the views or templates, and always refer to the URLs by its name
+
+#####
+
+#=================================================================================================
+
 from django.conf.urls import url
 from django.contrib import admin
 from boards import views
 
 urlpatterns = [
     url(r'^$',views.home,name='home'),
+    url(r'^boards/(?P<pk>\d+)/$',views.board_topics,name='board_topics'),
     url(r'^admin/', admin.site.urls)
 ]

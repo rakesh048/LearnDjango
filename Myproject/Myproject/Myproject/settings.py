@@ -40,6 +40,12 @@ INSTALLED_APPS = [
     'boards'
 ]
 
+### we use the middleware classes for modify the request response of API. 
+###  when request comes it goes from "top to down" with all middleware classes 
+### each middleware classes depends on each other like : "LAYER OF ONION"
+### when reponse by API goes from bottom to top
+
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -50,7 +56,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'Myproject.urls'
+ROOT_URLCONF = 'Myproject.urls' ### Check for the project base url 'root URL'
 
 TEMPLATES = [
     {
@@ -68,7 +74,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'Myproject.wsgi.application'
+WSGI_APPLICATION = 'Myproject.wsgi.application' ## used when code run on production server
 
 
 # Database
