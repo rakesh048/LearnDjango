@@ -40,3 +40,17 @@ urlpatterns = [
     url(r'^boards/(?P<pk>\d+)/$',views.board_topics,name='board_topics'),
     url(r'^admin/', admin.site.urls)
 ]
+
+
+
+
+##========== slug filed ====================
+#Regex 	(?P<slug>[-\w]+)
+#Example 	url(r'^posts/(?P<slug>[-\w]+)/$', views.post, name='post')
+#Valid URL 	/posts/hello-world/
+#Captures 	{'slug': 'hello-world'}
+
+##========= username =====================
+#regex (?P<username>[\w.@+-]+)
+#Valid URL 	/profile/vitorfs/
+#Captures 	{'username': 'vitorfs'}
