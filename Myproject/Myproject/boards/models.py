@@ -17,6 +17,9 @@ class Topic(models.Model):
 	board = models.ForeignKey(Board,related_name='topics')   #### Related Name used for reverse relationship here when Board make ralation with Topic
 	starter = models.ForeignKey(User,related_name='topics')
 
+	def __str__(self):
+		return self.subject
+
 class Post(models.Model):
 	message = models.TextField(max_length=4000)
 	topic = models.ForeignKey(Topic,related_name='posts')
@@ -24,6 +27,9 @@ class Post(models.Model):
 	updated_at = models.DateTimeField(null=True)
 	created_by = models.ForeignKey(User,related_name='posts')
 	updated_by = models.ForeignKey(User,null=True,related_name='+') #### + for does not make reverse relationship
+
+	def __str__(self):
+	    return self.message
 
 
 ### We use the model Manager to query in database like Board.objects.all()
